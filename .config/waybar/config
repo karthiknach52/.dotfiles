@@ -1,0 +1,65 @@
+[
+    {
+        "name": "topbar",
+        "layer": "top",
+        "position": "top",
+        "modules-left": ["custom/power", "battery", "memory", "cpu", "custom/life", "sway/mode", "tray"],
+        "modules-center": ["sway/workspaces"],
+        "modules-right": ["sway/language", "network", "idle_inhibitor", "clock"],
+        
+        "battery": {
+            "states": {
+                "warning": 30,
+                "critical": 15
+            },
+            "format": "{capacity}% {icon}",
+            "format-charging": "{capacity}% ",
+            "format-plugged": "{capacity}% ",
+            "format-alt": "{time} {icon}",
+            // "format-good": "", // An empty format will hide the module
+            // "format-full": "",
+            "format-icons": ["", "", "", "", ""]
+        },
+        
+        "clock": {
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+            "format-alt": "{:%Y-%m-%d}"
+        },
+        
+        "cpu": {
+            "format": "{usage}% ",
+            "tooltip": true
+        },
+        
+        "custom/life": {
+            "format": "{}  ",
+            "exec": "$HOME/.config/waybar/scripts/life percentage"
+        },
+        
+        "custom/power": {
+            "format":"<span font_desc='Font Awesome 6 Free'></span>",
+            "on-click":"swaynag -t warning -m 'Power Menu Options' -b 'Exit Sway' 'swaymsg exit' -b 'Suspend' 'systemctl suspend' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot'",
+	    "tooltip": false
+        },
+        
+        "idle_inhibitor": {
+            "format": "{icon}",
+            "format-icons": {
+                "activated": "",
+                "deactivated": ""
+            }
+        },
+        
+        "memory": {
+            "format": "{}% "
+        },
+        
+        "network": {
+            "format-wifi": "{essid} ({signalStrength}%) ",
+            "format-ethernet": "{ipaddr}/{cidr} ",
+            "format-linked": "(No IP) ",
+            "format-disconnected": "Disconnected ⚠",
+            "format-alt": "{ipaddr}/{cidr}"
+        }
+    }
+]

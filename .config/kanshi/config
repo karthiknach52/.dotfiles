@@ -1,0 +1,8 @@
+profile dock {
+	output eDP-1 disable
+	output "Dell Inc. DELL S2419H 79JZWR2" mode 1920x1080@60 position 0,0 scale 1
+}
+
+profile laptop {
+	output eDP-1 enable mode 1920x1080@60Hz position 0,0 scale 1
+}

@@ -1,0 +1,19 @@
+#!/usr/bin/python
+
+from datetime import date as d
+import math
+import sys
+
+TOTAL = 4680
+
+LIVED = math.floor((d.today() - d(2000, 1, 1)).days/7)
+
+REMAINING = TOTAL - LIVED
+
+PERCENTAGE = round(((LIVED/TOTAL)*100), 2)
+
+if len(sys.argv) > 1:
+  if sys.argv[1] == "percentage":
+    print(str(PERCENTAGE) + "%")
+  elif sys.argv[1] == "remaining":
+    print(REMAINING, "Weeks")

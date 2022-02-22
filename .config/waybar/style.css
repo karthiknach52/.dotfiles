@@ -1,0 +1,128 @@
+/* General Colours */
+@define-color blue #1067f0;
+@define-color red #f53c3c;
+@define-color yellow #ccda1f;
+@define-color green #26a65b;
+
+* {
+    color: @theme_text_color;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0)
+}
+
+window > box {
+    margin: 5px 0px 0px;
+    border-radius: 5px;
+}
+
+.modules-left {
+    background-color: @theme_base_color;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.modules-center {
+    background-color: @theme_base_color;
+    border-radius: 5px;
+}
+
+.modules-right {
+    background-color: @theme_base_color;
+    border-radius: 5px 0px 0px 5px;
+}
+
+
+/* All Modules */
+#battery,
+#clock,
+#cpu,
+#custom-life,
+#custom-power,
+#idle_inhibitor,
+#language,
+#memory,
+#network,
+#pulseaudio,
+#tray,
+#window,
+#workspaces {
+    padding: 0px 5px;
+    margin: 0px 5px;
+    border-bottom: 2px solid @theme_base_color;
+}
+
+
+/* Individual Modules */
+@keyframes blink {
+    to {
+        background-color: @theme_base_color;
+        color: @theme_text_color;
+    }
+}
+
+#battery.charging,
+#battery.plugged,
+#battery.full {
+    border-color: @green;
+}
+
+#battery.warning:not(.charging) {
+    border-radius: 5px;
+    background-color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+    border-radius: 5px;
+    background-color: @red;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#idle_inhibitor.activated {
+    border-color: @blue
+}
+
+#mode {
+    border-radius: 5px;
+    background-color: @green;
+}
+
+#network.disconnected {
+    border-color: @red;
+}
+
+#pulseaudio.muted {
+    border-color: @red;
+}
+
+#window {
+    background-color: rgba(0, 0, 0, 0);
+    padding: 0px;
+    font-size: 13px;
+}
+
+#workspaces {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+
+#workspaces button {
+    margin: 0px;
+    padding: 0px 10px;
+    border-radius: 0px;
+}
+
+#workspaces button.focused {
+    border-bottom: 2px solid @blue;
+}
+
+#workspaces button.urgent {
+    border-bottom: 2px solid @red;
+}

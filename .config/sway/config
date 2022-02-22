@@ -1,0 +1,242 @@
+### Sway Config File
+
+# Test
+# xwayland disable
+
+# Include random configs
+include /etc/sway/config.d/*
+
+##### VARIABLES #####
+
+set {
+	# Modifier Key
+	$mod Mod4
+
+	# Home-row
+	$left h
+	$down j
+	$up k
+	$right l
+	
+	# Menu
+	$menu dmenu_path | wofi | xargs swaymsg exec --
+}
+
+##### VARIABLES #####
+
+
+
+
+
+##### AUTOSTART #####
+# https://github.com/emersion/kanshi/issues/43
+
+exec {
+	swayidle -w timeout 600 'systemctl suspend'
+	wl-paste -t text --watch clipman store --no-persist
+}
+
+exec_always {
+	# lavalauncher
+}
+
+bar swaybar_command waybar
+
+##### AUTOSTART #####
+
+
+
+
+
+##### OUTPUT #####
+# swaymsg -t get_outputs
+
+output * {
+	# Default Wallpaper
+	bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+	
+	# Wallpaper
+	bg "/home/chid/.config/sway/wallpapers/big-sur-mountains.png"  fill
+	
+	# Resolution
+	resolution 1920x1080 position 0,0
+}
+
+# Window Gaps
+gaps inner 5
+
+# No Title
+default_border pixel 3
+
+for_window {
+	[app_id="firefox" title="^Picture-in-Picture$"] floating enable
+	[app_id="firefox" title="^https://ticktick.com$"] floating enable
+	[app_id="thunar" title="^File Operation Progress$"] floating enable
+}
+
+##### OUTPUT #####
+
+
+
+
+
+##### INPUT #####
+# swaymsg -t get_inputs
+
+input "2:7:SynPS/2_Synaptics_TouchPad" {
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
+}
+
+input "type:keyboard" {
+	xkb_layout gb,in,de
+	xkb_variant ,tam_tamilnet,
+	xkb_options grp:alt_space_toggle
+}
+
+##### INPUT #####
+
+
+
+
+
+##### KEY BINDINGS #####
+
+# Windows
+# Move: $mod+left
+# Resize: $mod+right
+floating_modifier $mod normal
+
+# Default Mode
+mode "default" {
+	bindsym {
+		# Reload Config
+		$mod+Shift+c reload
+	
+		# Terminal
+		$mod+Return exec kitty
+	
+		# Menu
+		$mod+Space exec dmenu_path | $menu  | xargs swaymsg exec --
+	
+		# Kill Focused Window
+		$mod+Shift+q kill
+	
+		# Player
+		XF86AudioPlay exec playerctl play-pause
+		XF86AudioNext exec playerctl next
+		XF86AudioPrev exec playerctl previous
+	
+		# Audio
+		XF86AudioRaiseVolume exec pamixer -i 5 
+		XF86AudioLowerVolume exec pamixer -d 5
+		XF86AudioMute exec pamixer -t
+	
+		# Screenshot
+		Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
+		Shift+Print exec grim -g "$(slurp)" screenshot.png
+	
+		# Exit Sway
+		$mod+Shift+e exec swaymsg exit
+		
+		# Change Focus
+		$mod+$up focus up
+		$mod+$down focus down
+		$mod+$left focus left
+		$mod+$right focus right
+	
+		$mod+Up focus up
+		$mod+Down focus down
+		$mod+Left focus left
+		$mod+Right focus right
+	
+		# Move Focused Window
+		$mod+Shift+$up move up
+		$mod+Shift+$down move down
+		$mod+Shift+$left move left
+		$mod+Shift+$right move right
+		
+		$mod+Shift+Up move up
+		$mod+Shift+Down move down
+		$mod+Shift+Left move left
+		$mod+Shift+Right move right
+		
+		# Switch to Workspace
+		$mod+1 workspace number 1
+		$mod+2 workspace number 2
+		$mod+3 workspace number 3
+		$mod+4 workspace number 4
+		$mod+5 workspace number 5
+		$mod+6 workspace number 6
+		$mod+7 workspace number 7
+		$mod+8 workspace number 8
+		$mod+9 workspace number 9
+		$mod+0 workspace number 10
+	
+		# Move focused container to workspace
+		$mod+Shift+1 move container to workspace number 1
+		$mod+Shift+2 move container to workspace number 2
+		$mod+Shift+3 move container to workspace number 3
+		$mod+Shift+4 move container to workspace number 4
+		$mod+Shift+5 move container to workspace number 5
+		$mod+Shift+6 move container to workspace number 6
+		$mod+Shift+7 move container to workspace number 7
+		$mod+Shift+8 move container to workspace number 8
+		$mod+Shift+9 move container to workspace number 9
+		$mod+Shift+0 move container to workspace number 10
+		
+		# Split Horizontal / Vertical
+		$mod+b splith
+		$mod+v splitv
+		
+		# Switch Layout
+		$mod+s layout stacking
+		$mod+w layout tabbed
+		$mod+e layout toggle split
+		
+		# Make Focused Fullscreen
+		$mod+f fullscreen
+		
+		# Toggle Tiling / Floating
+		$mod+Shift+space floating toggle
+	
+		# Toggle Tiling / Floating Focus
+		# $mod+space focus mode_toggle
+		
+		# Focus Parent
+		$mod+a focus parent
+	
+		# Hide Window
+		$mod+minus move scratchpad
+	
+		# Show Hidden Windows
+		$mod+equal scratchpad show
+		
+		# Switch to Resize Mode
+		$mod+r mode "resize"
+	}
+}
+
+# Resize Mode
+mode "resize" {
+	bindsym {
+		# Resize Windows
+		$left resize shrink width 20px
+		$down resize grow height 20px
+		$up resize shrink height 20px
+		$right resize grow width 20px
+
+		Left resize shrink width 10px
+		Down resize grow height 10px
+		Up resize shrink height 10px
+		Right resize grow width 10px
+
+		# Return to Default Mode
+		Return mode "default"
+		Escape mode "default"
+		$mod+r mode "default"
+	}
+}
+
+##### KEY BINDINGS #####

@@ -1,0 +1,8 @@
+#window {
+  border-radius: 10px;
+  border: 3px solid #2370f0;
+}
+
+#input {
+  border-radius: 10px 10px 0px 0px; 
+}
