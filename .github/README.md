@@ -1,6 +1,8 @@
-# .dotfiles
+# dotfiles repo
 
-To install:
+![](https://raw.githubusercontent.com/thechidambaram/.dotfiles/main/.github/screenshot.png)
+
+Install:
 
 ```
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'`
