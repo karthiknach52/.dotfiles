@@ -1,6 +1,6 @@
 # dotfiles repo
 
-![](https://raw.githubusercontent.com/thechidambaram/.dotfiles/main/.github/screenshot.png)
+![screenschot](screenshot.png)
 
 Install:
 
