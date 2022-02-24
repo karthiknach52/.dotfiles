@@ -22,27 +22,21 @@ set {
 	$menu dmenu_path | wofi | xargs swaymsg exec --
 }
 
-##### VARIABLES #####
-
 
 
 
 
 ##### AUTOSTART #####
-# https://github.com/emersion/kanshi/issues/43
-
 exec {
 	swayidle -w timeout 600 'systemctl suspend'
 	wl-paste -t text --watch clipman store --no-persist
 }
 
-exec_always {
-	# lavalauncher
-}
+# exec_always {
+
+# }
 
 bar swaybar_command waybar
-
-##### AUTOSTART #####
 
 
 
@@ -56,7 +50,7 @@ output * {
 	bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 	
 	# Wallpaper
-	bg "/home/chid/.config/sway/wallpapers/big-sur-mountains.png"  fill
+	bg /home/chid/.config/sway/wallpapers/big-sur-mountains.png  fill
 	
 	# Resolution
 	resolution 1920x1080 position 0,0
@@ -73,8 +67,6 @@ for_window {
 	[app_id="firefox" title="^https://ticktick.com$"] floating enable
 	[app_id="thunar" title="^File Operation Progress$"] floating enable
 }
-
-##### OUTPUT #####
 
 
 
@@ -94,8 +86,6 @@ input "type:keyboard" {
 	xkb_variant ,tam_tamilnet,
 	xkb_options grp:alt_space_toggle
 }
-
-##### INPUT #####
 
 
 
@@ -238,5 +228,3 @@ mode "resize" {
 		$mod+r mode "default"
 	}
 }
-
-##### KEY BINDINGS #####
