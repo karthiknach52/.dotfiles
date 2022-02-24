@@ -31,11 +31,6 @@
             "tooltip": true
         },
         
-        "custom/life": {
-            "format": "{}  ",
-            "exec": "$HOME/.config/waybar/scripts/life percentage"
-        },
-        
         "custom/power": {
             "format":"<span font_desc='Font Awesome 6 Free'></span>",
             "on-click":"swaynag -t warning -m 'Power Menu Options' -b 'Exit Sway' 'swaymsg exit' -b 'Suspend' 'systemctl suspend' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot'",
