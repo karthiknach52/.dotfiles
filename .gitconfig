@@ -1,10 +1,12 @@
 [user]
 	email = 60850111+thechidambaram@users.noreply.github.com 
 	name = Chidambaram Nachiappan
-[credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+	signingkey = 2D0A0551719F3D9D
 [pull]
 	rebase = false
 [core]
 	editor = vim
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main

@@ -66,6 +66,7 @@ for_window {
 	[app_id="firefox" title="^Picture-in-Picture$"] floating enable
 	[app_id="firefox" title="^https://ticktick.com$"] floating enable
 	[app_id="thunar" title="^File Operation Progress$"] floating enable
+	[class="ticktick"] floating enable
 }
 
 
@@ -93,7 +94,7 @@ input "type:keyboard" {
 
 ##### KEY BINDINGS #####
 
-# Windows
+# Floating Windows
 # Move: $mod+left
 # Resize: $mod+right
 floating_modifier $mod normal

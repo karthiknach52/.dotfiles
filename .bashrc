@@ -39,6 +39,7 @@ PS1="[\u@\h \W]\$ "
 PS1="\[\033[01;34m\][\u \W]\$ \[\033[33m\]"
 PS0="\[\033[00m\]"
 
+
 # Auto-complete commands
 complete -cf man which
 

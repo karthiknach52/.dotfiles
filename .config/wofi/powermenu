@@ -1,0 +1,6 @@
+columns=5
+height=200
+mode=dmenu
+hide_search=true
+style=/home/chid/.config/wofi/powermenu.css
+
