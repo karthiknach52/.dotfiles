@@ -3,7 +3,7 @@
         "name": "topbar",
         "layer": "top",
         "position": "top",
-        "modules-left": ["custom/power", "battery", "memory", "cpu", "custom/life", "sway/mode", "tray"],
+        "modules-left": ["custom/power", "battery", "memory", "cpu", "custom/search", "sway/mode", "tray"],
         "modules-center": ["sway/workspaces"],
         "modules-right": ["sway/language", "network", "idle_inhibitor", "clock"],
         
@@ -34,7 +34,7 @@
         "custom/power": {
             "format":"<span font_desc='Font Awesome 6 Free'></span>",
             "on-click":"~/.config/scripts/powermenu.sh",
-	    "tooltip": false
+	        "tooltip": false
         },
         
         "idle_inhibitor": {
@@ -47,6 +47,16 @@
         
         "memory": {
             "format": "{}% "
+        },
+
+        "custom/search": {
+            "format":"<span font_desc='Font Awesome 6 Free'></span>",
+            "on-click":"wofi"
+        },
+
+        "tray": {
+            "icon-size": 15,
+            "spacing": 10
         },
         
         "network": {

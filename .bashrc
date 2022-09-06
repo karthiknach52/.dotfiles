@@ -6,18 +6,17 @@ HISTSIZE=100
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export EDITOR=vim
 export TERM=kitty
-
+export GPG_TTY=$(tty)
 
 
 ##### ALISES #####
 alias rm='rm -v'
 alias cp='cp -v'
 alias mv='mv -v'
-alias sudo='doas'
 alias echo='echo -e'
 alias mkdir='mkdir -v'
 alias rmdir='rmdir -v'
-alias py='/bin/python'
+alias py='python'
 alias shred='shred -uv'
 alias ls='ls --color=auto'
 alias aur='AUR_PAGER=vim aur'
