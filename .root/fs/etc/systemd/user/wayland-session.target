@@ -1,0 +1,6 @@
+[Unit]
+Description=Current User Wayland Session
+Requires=basic.target
+RefuseManualStart=yes
+# StopWhenUnneeded=yes
+BindsTo=graphical-session.target

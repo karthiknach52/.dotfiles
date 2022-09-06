@@ -1,0 +1,15 @@
+[Unit]
+Description=Kanshi Dynamic Output Configuration 
+Documentation=man:kanshi(5)
+PartOf=wayland-session.target
+
+# ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/kanshi
+RestartSec=5
+Restart=always
+
+[Install]
+WantedBy=wayland-session.target

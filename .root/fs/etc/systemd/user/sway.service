@@ -1,0 +1,17 @@
+[Unit]
+Description=Sway Wayland Compositor
+Documentation=man:sway(5)
+
+BindsTo=wayland-session.target
+
+# Before=wayland-session.target
+# Wants=wayland-session.target
+
+[Service]
+Type=simple
+EnvironmentFile=-%h/.config/sway/env
+ExecStart=/usr/bin/sway --unsupported-gpu
+
+[Install]
+RequiredBy=wayland-session.target
+WantedBy=default.target
