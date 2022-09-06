@@ -1,0 +1,13 @@
+[Unit]
+Description=Mount Google Drive
+Documentation=man:rclone(1)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount --vfs-cache-mode=full --no-checksum --no-modtime GDrive: %h/GDrive
+ExecStop=/usr/bin/fusermount -u %h/GDrive
+
+[Install]
+WantedBy=default.target
