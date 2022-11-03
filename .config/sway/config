@@ -1,9 +1,9 @@
 ### Sway Config File
 
-# Test
+# Wayland only
 # xwayland disable
 
-# Include random configs
+# Include default configs
 include /etc/sway/config.d/*
 
 ##### VARIABLES #####
@@ -83,8 +83,7 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 }
 
 input "type:keyboard" {
-	xkb_layout gb,in,de
-	xkb_variant ,tam_tamilnet,
+	xkb_layout gb
 	xkb_options grp:alt_space_toggle
 }
 
@@ -120,10 +119,18 @@ mode "default" {
 		XF86AudioPrev exec playerctl previous
 	
 		# Audio
-		XF86AudioRaiseVolume exec pamixer -i 5 
-		XF86AudioLowerVolume exec pamixer -d 5
-		XF86AudioMute exec pamixer -t
-	
+		# XF86AudioRaiseVolume exec pamixer -i 5 
+		# XF86AudioLowerVolume exec pamixer -d 5
+		# XF86AudioMute exec pamixer -t
+		
+		XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+
+		# XF86AudioRaiseVolume exec kitty
+		XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
+		# XF86AudioLowerVolume exec kitty
+		XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle	
+		# XF86AudioMute exec kitty 	
+		
+
 		# Screenshot
 		Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
 		Shift+Print exec grim -g "$(slurp)" screenshot.png

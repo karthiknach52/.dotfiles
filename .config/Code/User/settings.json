@@ -1,4 +1,5 @@
 {
     "workbench.colorTheme": "Default Dark+",
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "files.autoSave": "afterDelay"
 }

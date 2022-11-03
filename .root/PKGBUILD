@@ -3,7 +3,7 @@ pkgver=1
 pkgrel=1
 pkgdesc="Archlinux dotfiles"
 arch=(x86_64)
-depends=(git)
+depends=(vim git tree bat unzip tlp rclone wayland wl-clipboard kanshi sway waybar wofi thunar kitty pdfarranger pipewire pipewire-pulse pipewire-alsa pavucontrol playerctl grim slurp gimp obsidian)
 source=("fs.tar")
 md5sums=("SKIP")
 package() {
